@@ -10,8 +10,7 @@
 @font-face {
   font-family: 'MyFont';
   src: url('fonts/alibaba-bold.woff2') format('woff2'),
-       url('fonts/alibaba-bold.woff') format('woff'),
-       url('fonts/alibaba-bold.ttf') format('truetype');
+       url('fonts/alibaba-bold.woff') format('woff');
 }
 
     body {
@@ -21,6 +20,11 @@
       color: #333;
       direction: rtl;
       padding: 1rem;
+    }
+    .header-section{
+      background-color: #f5f0e6; /* کرم ملایم */
+      padding: 1rem;
+      border-radius: 0 0 20px 20px;
     }
     .logo-container {
       text-align: center;
@@ -49,6 +53,8 @@
 }
 
 .logo-line2 {
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
   font-size: 1.6rem;
   color: #8B4513;
   margin-top: 0.2rem;
@@ -67,6 +73,7 @@
     }
     .section {
       margin-bottom: 2rem;
+      margin-top: 3rem;
     }
     .section h2 {
       font-size: 1.2rem;
@@ -103,13 +110,15 @@
   </style>
 </head>
 <body>
+  <div class="header-section">
+
   <div class="logo-container">
-    <img src="logo-pomona-black.svg" alt="کافه پومونا">
+    <img src="logo-pomona-transparent.svg" alt="کافه پومونا">
   </div>
 
 <div class="logo-text">
   <div class="logo-line1">POMONA</div>
-  <div class="logo-line2">c a f e b a r</div>
+  <div class="logo-line2">cafebar</div>
 </div>
 
   <div class="note">
@@ -118,6 +127,7 @@
     در صورت عدم سفارش حق سرویس دریافت می‌گردد.
   </div>
 
+  </div>
   <div class="section">
     <h2><i class="fas fa-coffee"></i> COFFEE</h2>
     <div class="item"><span> </span><span>S &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D</span></div>
@@ -146,7 +156,7 @@
   </div>
 
   <div class="section">
-    <h2><i class="fa fa-cocktail"></i> MILK-SHAKE</h2>
+    <h2><i class="fas fa-cocktail"></i> MILK-SHAKE</h2>
     <div class="item"><span>شکلات</span><span>110</span></div>
     <div class="item"><span>موز شکلات</span><span>120</span></div>
     <div class="item"><span>نوتلا</span><span>140</span></div>
@@ -156,7 +166,7 @@
   </div>
 
   <div class="section">
-    <h2><i class="fa fa-wine-glass"></i> DRINKS </h2>
+    <h2><i class="fas fa-wine-glass"></i> DRINKS </h2>
     <div class="item"><span>موهیتو</span><span>90</span></div>
     <div class="item"><span>بلک موهیتو</span><span>105</span></div>
     <div class="item"><span>لیموناد</span><span>80</span></div>
@@ -167,7 +177,7 @@
   </div>
 
   <div class="section">
-    <h2><i class="fa fa-glass-martini"></i> ICE-COFFEE</h2>
+    <h2><i class="fas fa-glass-martini"></i> ICE-COFFEE</h2>
     <div class="item"><span> </span><span>S &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D</span></div>
     <div class="item"><span>آیس لاته</span><span>90 - 80</span></div>
     <div class="item"><span>آیس موکا</span><span>110 - 100</span></div>
@@ -175,14 +185,14 @@
   </div>
 
   <div class="section">
-    <h2><i class="fa fa-cake"></i> CAKES</h2>
+    <h2><i class="fas fa-cake"></i> CAKES</h2>
     <div class="item"><span>کیک روز</span><span>؟</span></div>
     <div class="item"><span>کوکی</span><span>؟</span></div>
     <div class="item"><span>طعم‌دهنده</span><span>؟</span></div>
   </div>
 
   <div class="section">
-    <h2><i class="fa fa-egg"></i> BREAKFAST</h2>
+    <h2><i class="fas fa-egg"></i> BREAKFAST</h2>
     <div class="item"><span>املت</span></div>
     <div class="item"><span>سوسیس تخم‌مرغ</span></div>
     <div class="item"><span>نیمرو</span></div>
@@ -192,8 +202,8 @@
   </div>
 
   <div class="footer">
-    <p class="bold">سفارش: 09037523848</p>
-    <p>اینستاگرام: <span class="bold">pomona.cafebar</span></p>
+    <p class="bold">سفارش: <a href="tel:09037523848">09037523848</a></p>
+    <p>اینستاگرام: <a href="https://instagram.com/pomona.cafebar" target="_blank"><span class="bold">@pomona.cafebar</span></a></p>
     <p>شماره کارت: 7599 7983 3376 6104</p>
   </div>
 </body>
