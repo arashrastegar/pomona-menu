@@ -262,5 +262,5 @@ function closeModal() {
   modal.classList.remove('show');
   setTimeout(() => {
     modal.style.display = 'none';
-  }, 300);
+  }, 0);
 }
