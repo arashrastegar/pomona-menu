@@ -85,7 +85,16 @@
       justify-content: space-between;
       padding: 0.3rem 0;
       border-bottom: 1px dashed #ddd;
+        transition: background-color 0.3s ease;
     }
+
+    .item:hover {
+      background-color: #fdf6ee;
+    }
+
+
+
+
     .footer {
       text-align: center;
       font-size: 0.9rem;
@@ -130,6 +139,9 @@
     color: #8B4513;
     cursor: pointer;
     display: inline-block;
+    border: 1px solid #8B4513;
+    padding: 10px;
+    border-radius: 5px;
     }
 
     .modal-description {
