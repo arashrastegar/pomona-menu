@@ -150,7 +150,7 @@
 
 /* for animation Fade In open modal  */
 .modal-content {
-  animation: fadeInScale 0.1s ease;
+  animation: fadeInScale 0.3s ease;
 }
 @keyframes fadeInScale {
   from {
