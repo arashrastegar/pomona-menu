@@ -121,6 +121,7 @@
     max-height: 90%;
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
     text-align: center;
+    overflow-y: auto;
     }
 
     .modal-close {
