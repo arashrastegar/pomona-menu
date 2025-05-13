@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ویرایش منوی کافه</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .editor-title{
+        margin: 2rem 0 2rem 0;
+        font-size: 1.5rem;
+    }
+
+    .editable-price,
+    .editable-image {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0.4rem 0.6rem;
+      font-family: inherit;
+      font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .editable-description {
+      width: 100%;
+      height: 100px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 0.6rem;
+      resize: vertical;
+      margin-top: 0.5rem;
+      margin-bottom: 0.8rem;
+      box-sizing: border-box;
+    }
+
+    .editor-section {
+      margin-bottom: 2rem;
+    }
+
+    .editor-item {
+      background-color: #fffdf9;
+      border: 2px solid #e0d6c9;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    .editor-item h3 {
+      margin-top: 0;
+      color: #4a342e;
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+    }
+
+    label {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #8B4513;
+      display: block;
+      margin-top: 0.8rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    button {
+      background-color: #8B4513;
+      color: white;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #6f3611;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-section">
+    <div class="logo-container">
+      <img src="logo-pomona-transparent.svg" alt="کافه پومونا" />
+    </div>
+    <div class="logo-text">
+      <div class="logo-line1">POMONA</div>
+      <div class="logo-line2">cafebar</div>
+    </div>
+    <div class="note">در این صفحه می‌تونی قیمت، تصویر و توضیحات هر محصول رو به راحتی ویرایش کنی.</div>
+  </div>
+
+  <div class="editor-title">ویرایش محصولات</div>
+
+  <div class="editor-section" id="editorContainer">
+    <!-- آیتم‌ها با جاوااسکریپت پر می‌شن -->
+  </div>
+
+  <div class="button-container">
+    <button onclick="downloadJSON()">دریافت فایل products.js</button>
+  </div>
+
+  <script src="products.js"></script>
+  <script>
+    const editorContainer = document.getElementById("editorContainer");
+
+    window.addEventListener("load", () => {
+      Object.entries(itemsInfo).forEach(([key, val]) => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "editor-item";
+        wrapper.setAttribute("data-key", key);
+
+        wrapper.innerHTML = `
+          <h3>${val.title || key}</h3>
+
+          <label>قیمت</label>
+          <input type="text" class="editable-price" placeholder="قیمت" data-field="price" value="${val.price || ''}">
+
+          <label>نام فایل تصویر</label>
+          <input type="text" class="editable-image" placeholder="مثلاً latte.jpg" data-field="image" value="${val.image?.replace("images/", "") || ''}">
+
+          <label>توضیحات</label>
+          <textarea class="editable-description" placeholder="توضیحات محصول..." data-field="description">${val.description || ''}</textarea>
+        `;
+
+        editorContainer.appendChild(wrapper);
+      });
+    });
+
+    function downloadJSON() {
+      const items = document.querySelectorAll(".editor-item");
+      const newData = {};
+
+      items.forEach(item => {
+        const key = item.getAttribute("data-key");
+        const price = item.querySelector('[data-field="price"]').value.trim();
+        const image = item.querySelector('[data-field="image"]').value.trim();
+        const description = item.querySelector('[data-field="description"]').value.trim();
+        const title = item.querySelector("h3").textContent.trim();
+
+        newData[key] = {
+          ...(title && { title }),
+          ...(image && { image: "images/" + image }),
+          ...(description && { description }),
+          ...(price && { price })
+        };
+      });
+
+      const blob = new Blob([`const itemsInfo = ${JSON.stringify(newData, null, 2)};`], { type: "application/javascript" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "products.js";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+
+</body>
+</html>
