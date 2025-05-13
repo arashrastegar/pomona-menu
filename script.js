@@ -1,3 +1,15 @@
+// جایگذاری قیمت ها از product.js
+document.querySelectorAll('.item').forEach(item => {
+  const name = item.getAttribute('data-name');
+  const spans = item.querySelectorAll('span');
+
+  if (itemsInfo[name] && itemsInfo[name].price && spans.length === 2) {
+    spans[1].innerText = itemsInfo[name].price;
+  }
+});
+
+
+
 document.querySelectorAll('.item').forEach(item => {
   const name = item.getAttribute('data-name');
   item.addEventListener('click', () => {
@@ -12,10 +24,12 @@ document.querySelectorAll('.item').forEach(item => {
 });
 
 
+
 // بستن مودال با کلیک روی فضای خالی
 document.getElementById('imageModal').addEventListener('click', (e) => {
   if (e.target.id === 'imageModal') closeModal();
 });
+
 
 
 // تابع بستن مودال
@@ -26,3 +40,7 @@ function closeModal() {
     modal.style.display = 'none';
   }, 0);
 }
+
+
+
+
