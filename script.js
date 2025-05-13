@@ -80,8 +80,8 @@ const itemsInfo = {
   },
 
 
-  "herbal-tea": {
-    image: "images/herbal-tea.jpg",
+  "herbal": {
+    image: "images/herbal.jpg",
     description: "نوشیدنی‌ای آرام‌بخش و گیاهی از ترکیب گل‌ها و گیاهان دارویی."
   },
 
@@ -92,8 +92,8 @@ const itemsInfo = {
   },
 
 
-  "milkshake-banana-choco": {
-    image: "images/milkshake-banana-choco.jpg",
+  "milkshake-banana-chocolate": {
+    image: "images/milkshake-banana-chocolate.jpg",
     description: "ترکیبی دل‌پذیر از بستنی، موز و شکلات برای تجربه‌ای شیرین و خاص."
   },
 
@@ -229,7 +229,7 @@ const itemsInfo = {
     description: "ساندویچ گرم شده با ژامبون، پنیر و نان پرس‌شده."
   },
 
-  
+
   "peanut-toast": {
     image: "images/peanut-toast.jpg",
     description: "نان تست شده با کره بادام‌زمینی؛ سالم، خوشمزه و مقوی."
