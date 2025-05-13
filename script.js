@@ -257,6 +257,10 @@ document.querySelectorAll('.item').forEach(item => {
   });
 });
 
+document.getElementById('imageModal').addEventListener('click', (e) => {
+  if (e.target.id === 'imageModal') closeModal();
+});
+
 function closeModal() {
   const modal = document.getElementById('imageModal');
   modal.classList.remove('show');
