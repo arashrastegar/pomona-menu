@@ -1,7 +1,7 @@
 {
   "name": "پومونا",
   "short_name": "ادمین پومونا",
-  "start_url": "/pomona-menu/",
+  "start_url": "/pomona-menu/editor.html",
   "scope": "/pomona-menu/",
   "display": "standalone",
   "background_color": "#dcd2be",
